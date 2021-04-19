@@ -50,13 +50,6 @@
   },
   {
     "inputs": [],
-    "name": "complete",
-    "outputs": [],
-    "stateMutability": "payable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "completed",
     "outputs": [
       {
