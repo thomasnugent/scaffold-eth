@@ -70,6 +70,19 @@
   },
   {
     "inputs": [],
+    "name": "deadline",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "exampleExternalContract",
     "outputs": [
       {
@@ -83,6 +96,13 @@
   },
   {
     "inputs": [],
+    "name": "execute",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "stake",
     "outputs": [],
     "stateMutability": "payable",
@@ -91,6 +111,19 @@
   {
     "inputs": [],
     "name": "threshold",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "timeLeft",
     "outputs": [
       {
         "internalType": "uint256",
