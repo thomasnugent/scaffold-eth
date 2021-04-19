@@ -1,5 +1,13 @@
 # 🏗 scaffold-eth | 🏰 BuidlGuidl
 
+## Tom's Tips
+
+Open 3 Ubuntu windows and navigate:
+
+```ubuntu
+cd /mnt/c/Users/tomnu/Documents/challenge-1-decentralised-staking/
+```
+
 ## 🚩 Challenge 1: Decentralized Staking App
 
 > 🏦 Build a `Staker.sol` contract that collects **ETH** from numerous addresses using a payable `stake()` function and keeps track of `balances`. After some `deadline` if it has at least some `threshold` of ETH, it sends it to an `ExampleExternalContract` and triggers the `complete()` action sending the full balance. If not enough **ETH** is collected, allow users to `withdraw()`.
