@@ -8,7 +8,7 @@ contract Staker {
   ExampleExternalContract public exampleExternalContract;
   mapping ( address => uint256 ) public balances;
   uint256 public constant threshold = 0.01 ether;  // NOTE easier for testing than 30s
-  uint256 public deadline = now + 120 seconds;  // NOTE easier for testing than 30s
+  uint256 public deadline = now + 30 seconds;
 
   bool public completed;
   
@@ -40,17 +40,23 @@ contract Staker {
   //  It should either call `exampleExternalContract.complete{value: address(this).balances}()` to send all the value
   function execute() public {
 
-    // Could put the conditions in if statement in `require` statements for better error messages too
     require(completed == false, "Contract has already been completed");
-
-    if (now <= deadline && address(this).balance >= threshold) {
-      exampleExternalContract.complete{value: address(this).balance}();
-    }
+    require(now >= deadline, "Deadline hasn't passed yet");
+    require(address(this).balance >= threshold, "Threshold not reached");
+    exampleExternalContract.complete{value: address(this).balance}();
+    completed = true;
   }
 
   // if the `threshold` was not met, allow everyone to call a `withdraw()` function
-  function withdraw() public {
-    require(now > deadline, "Deadline hasn't passed yet");
+  function withdraw(address) public payable {
+
+    // TODO somehow this is being called?
+    // Attempt to execute first, in case it hasn't been called yet.
+    // if (completed == false) {
+    //   this.execute();
+    // }
+
+    require(now >= deadline, "Deadline hasn't passed yet");
     require(completed == true, "Contract has not been completed");
     require(balances[msg.sender] > 0, "You haven't deposited");
     
